@@ -24,6 +24,11 @@ import Header from '@/components/Header.vue'
 import Search from '@/components/Search.vue'// @ is an alias to /src
 import Movie from '@/components/Movie.vue'
 import {getMovieList} from '@/api/search'
+// export interface dataX{
+//   Search: Array<any>,
+//   totalResults: String,
+//   Response: string
+// }
 @Component({
     components:{
         Header,
@@ -54,7 +59,7 @@ export default class Index extends Vue{
         // getMovieList(params).then((response)=>{
         //     console.log(response,'%%%%%%%data%%%')
         // })
-        let data = await getMovieList(params)
+        let data:any = await getMovieList(params)
         console.log(data.Search,'%%%%%%%data%%%',data.totalResults)
         if(data.totalResults>0){
             this.list = data.Search
