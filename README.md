@@ -1,5 +1,5 @@
-# hello-cli3
-
+# cli3-search-movie
+this.project use vue-cli3 & typescript
 ## Project setup
 ```
 npm install
