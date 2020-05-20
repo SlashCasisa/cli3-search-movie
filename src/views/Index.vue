@@ -44,6 +44,7 @@ export default class Index extends Vue{
     // 生命周期
     created() { 
         this.getMovie('man')
+        window.addEventListener('scroll',this.throttle(this.scroll, 2000))
     }
     private clickSearch(ply:string){
         console.log(ply,'ply')
@@ -74,6 +75,24 @@ export default class Index extends Vue{
         //     }
         //     this.tips = 'Sharing a few of our favourite movies'
         // })
+        
+    }
+   private throttle(fn:any, interval:any){
+    let last = 0 //记录时间
+    return function(this:any){
+     let content = this//记录上下文。
+     let args = arguments//记录参数
+     let now = + new Date()
+    //  console.log(content,'content',args,'args')
+     if( now - last > interval){
+        last = now
+        fn.apply(content, args)
+     }
+    }
+   }
+    private scroll(){
+        console.log('滚动条')
     }
 }
+
 </script>
